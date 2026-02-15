@@ -2,7 +2,7 @@ import './globals.css';
 
 export const metadata = {
   title: 'Taofik Hidayat | Security Analyst',
-  description: 'Bug hunter | Penetration Tester',
+  description: 'Bug hunter | Pentester',
 };
 
 export default function RootLayout({ children }) {

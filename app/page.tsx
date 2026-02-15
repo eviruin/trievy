@@ -1,7 +1,10 @@
 'use client';
 
 import { useEffect, useMemo, useState } from 'react';
-import Image from 'next/image';
+import GlitchLogo from './components/GlitchLogo';
+import RadarAvatar from './components/RadarAvatar';
+import RevealCard from './components/RevealCard';
+import TypewriterText from './components/TypewriterText';
 
 const content = {
   id: {
@@ -34,6 +37,7 @@ const content = {
       { name: 'Web Pentesting', level: 82 },
       { name: 'Threat Modeling', level: 74 },
       { name: 'Secure Frontend', level: 78 },
+      { name: 'Mobile Apps Security', level: 72 },
     ],
     expTitle: 'Mode Pengalaman',
     experiences: [
@@ -87,9 +91,9 @@ const content = {
     arsenal: [
       { name: 'Recon & OSINT', level: 86 },
       { name: 'Web Pentesting', level: 82 },
-      { name: 'Mobile Pentesting', level: 68 },
       { name: 'Threat Modeling', level: 74 },
       { name: 'Secure Frontend', level: 78 },
+      { name: 'Mobile Apps Security', level: 72 },
     ],
     expTitle: 'Experience Mode',
     experiences: [
@@ -139,9 +143,7 @@ export default function HomePage() {
       <div className="scanline" />
 
       <header className="topnav glass">
-        <p className="logo">
-          evi<span>ruin</span>
-        </p>
+        <GlitchLogo />
         <nav>
           {t.nav.map((item) => (
             <a key={item.href} href={item.href}>
@@ -164,7 +166,7 @@ export default function HomePage() {
           <p className="kicker">{t.hello}</p>
           <h1>{t.name}</h1>
           <h2>{t.role}</h2>
-          <p className="typing">{t.tagline}</p>
+          <TypewriterText text={t.tagline} />
           <p className="muted">{t.intro}</p>
           <div className="cta-row">
             <a href="/assets/resume.pdf" target="_blank" rel="noreferrer" className="btn primary">
@@ -176,14 +178,11 @@ export default function HomePage() {
           </div>
         </article>
 
-        <div className="avatar-wrap">
-          <Image src="/assets/taofik.png" alt="Taofik Hidayat" width={240} height={240} className="avatar" />
-          <span className="radar" />
-        </div>
+        <RadarAvatar />
       </section>
 
       <section className="grid">
-        <article id="about" className="glass card">
+        <RevealCard id="about">
           <h3>{t.aboutTitle}</h3>
           <p className="muted">{t.aboutText}</p>
           <div className="stats">
@@ -194,9 +193,9 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-        </article>
+        </RevealCard>
 
-        <article id="arsenal" className="glass card">
+        <RevealCard id="arsenal">
           <h3>{t.arsenalTitle}</h3>
           <div className="meter-wrap">
             {t.arsenal.map((skill) => (
@@ -211,10 +210,10 @@ export default function HomePage() {
               </div>
             ))}
           </div>
-        </article>
+        </RevealCard>
       </section>
 
-      <section className="glass card">
+      <RevealCard>
         <h3>{t.expTitle}</h3>
         <div className="timeline">
           {t.experiences.map((exp) => (
@@ -224,9 +223,23 @@ export default function HomePage() {
             </div>
           ))}
         </div>
+      </RevealCard>
+
+      <section className="grid">
+        <RevealCard>
+          <h3>PoC</h3>
+          <p className="muted">Coming soon.</p>
+          <a className="btn ghost" href="/poc">Open PoC Page</a>
+        </RevealCard>
+
+        <RevealCard>
+          <h3>Project</h3>
+          <p className="muted">Coming soon.</p>
+          <a className="btn ghost" href="/project">Open Project Page</a>
+        </RevealCard>
       </section>
 
-      <section id="contact" className="glass card">
+      <RevealCard id="contact">
         <h3>{t.contactTitle}</h3>
         <p className="muted">{t.contactText}</p>
 
@@ -250,7 +263,7 @@ export default function HomePage() {
             WhatsApp
           </a>
         </div>
-      </section>
+      </RevealCard>
     </main>
   );
 }
