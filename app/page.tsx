@@ -6,6 +6,8 @@ import RadarAvatar from './components/RadarAvatar';
 import RevealCard from './components/RevealCard';
 import TypewriterText from './components/TypewriterText';
 
+type Lang = 'id' | 'en';
+
 const content = {
   id: {
     toggle: 'EN',
@@ -122,13 +124,13 @@ const content = {
 };
 
 export default function HomePage() {
-  const [lang, setLang] = useState('id');
+  const [lang, setLang] = useState<Lang>('id');
   const t = useMemo(() => content[lang], [lang]);
 
   useEffect(() => {
     const savedLang = window.localStorage.getItem('portfolio-lang');
     if (savedLang === 'id' || savedLang === 'en') {
-      setLang(savedLang);
+      setLang(savedLang as Lang);
     }
   }, []);
 
@@ -161,6 +163,7 @@ export default function HomePage() {
         </button>
       </header>
 
+      {/* Hero Section */}
       <section id="home" className="hero glass">
         <article>
           <p className="kicker">{t.hello}</p>
@@ -181,6 +184,7 @@ export default function HomePage() {
         <RadarAvatar />
       </section>
 
+      {/* About & Arsenal */}
       <section className="grid">
         <RevealCard id="about">
           <h3>{t.aboutTitle}</h3>
@@ -213,7 +217,8 @@ export default function HomePage() {
         </RevealCard>
       </section>
 
-      <RevealCard>
+      {/* Experiences */}
+      <RevealCard id="experience">
         <h3>{t.expTitle}</h3>
         <div className="timeline">
           {t.experiences.map((exp) => (
@@ -225,20 +230,22 @@ export default function HomePage() {
         </div>
       </RevealCard>
 
+      {/* PoC & Projects */}
       <section className="grid">
-        <RevealCard>
-          <h3>PoC</h3>
-          <p className="muted">Coming soon.</p>
-          <a className="btn ghost" href="/poc">Open PoC Page</a>
-        </RevealCard>
+        <RevealCard id="poc">
+  <h3>PoC</h3>
+  <p className="muted">Coming soon.</p>
+  <a className="btn ghost" href="/poc">Open PoC Page</a>
+</RevealCard>
 
-        <RevealCard>
-          <h3>Project</h3>
-          <p className="muted">Coming soon.</p>
-          <a className="btn ghost" href="/project">Open Project Page</a>
-        </RevealCard>
+<RevealCard id="project">
+  <h3>Project</h3>
+  <p className="muted">Coming soon.</p>
+  <a className="btn ghost" href="/project">Open Project Page</a>
+</RevealCard>
       </section>
 
+      {/* Contact */}
       <RevealCard id="contact">
         <h3>{t.contactTitle}</h3>
         <p className="muted">{t.contactText}</p>
