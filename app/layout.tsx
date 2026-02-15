@@ -2,7 +2,7 @@ import './globals.css';
 
 export const metadata = {
   title: 'Taofik Hidayat | Security Analyst',
-  description: 'Bug hunter and red team themed personal portfolio in English and Bahasa Indonesia.',
+  description: 'Bug hunter | Penetration Tester',
 };
 
 export default function RootLayout({ children }) {

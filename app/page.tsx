@@ -87,6 +87,7 @@ const content = {
     arsenal: [
       { name: 'Recon & OSINT', level: 86 },
       { name: 'Web Pentesting', level: 82 },
+      { name: 'Mobile Pentesting', level: 68 },
       { name: 'Threat Modeling', level: 74 },
       { name: 'Secure Frontend', level: 78 },
     ],
@@ -139,7 +140,7 @@ export default function HomePage() {
 
       <header className="topnav glass">
         <p className="logo">
-          eviruin<span>.red</span>
+          evi<span>ruin</span>
         </p>
         <nav>
           {t.nav.map((item) => (
@@ -239,7 +240,7 @@ export default function HomePage() {
         </form>
 
         <div className="links">
-          <a href="https://github.com/evika7" target="_blank" rel="noreferrer">
+          <a href="https://github.com/eviruin" target="_blank" rel="noreferrer">
             GitHub
           </a>
           <a href="https://www.linkedin.com/in/taofik-hidayat-b7b593215/" target="_blank" rel="noreferrer">

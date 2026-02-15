@@ -356,10 +356,11 @@ h3 {
 }
 
 .links {
-  margin-top: 0.85rem;
+  margin-top: 2rem;
   display: flex;
   gap: 0.6rem;
   flex-wrap: wrap;
+  justify-content: center;
 }
 
 .links a {
