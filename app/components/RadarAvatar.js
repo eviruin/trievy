@@ -4,7 +4,7 @@ export default function RadarAvatar() {
   return (
     <div className="avatar-wrap radar-bit">
       <Image
-        src="/assets/about-bg.png"
+        src="/assets/IMG_3176.jpeg"
         alt="Taofik Hidayat"
         width={240}
         height={240}
